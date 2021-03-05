@@ -74,3 +74,13 @@ median_abs_dif <- round(median(abs(v),na.rm=T),2)
 plot(d_mod,main=paste0("shift x= ", x_inc, "px, y=", y_inc, "px\n median dif = ",median_dif,
                        "; \nmean dif = ", mean_dif,
                        "; \nmedian abs value dif = ", median_abs_dif))
+
+##TO-DOs per Pat S
+#Compare linear model to quadratic model for trees
+#Test whether slope is significantly different from 1:1 and put in SI
+#Barbara finalize data structure first.
+
+##Other questions to investigate
+#Hi-grade data; look at broad cover classes (decrease in trees etc)
+#Wait till disturbance metrics/spatial layers are solid to do any spatial extractions.
+#Follow outline to see what Q's to investigate
