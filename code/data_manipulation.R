@@ -50,3 +50,14 @@ ggplot(d_plot_old, aes(x = sum_lf, y = direct_lf, col = lf) ) +
   theme_bw() +
   labs(x = "summed cover", y = "direct cover", col = "lifeform")
 dev.off()
+
+##TO-DOs per Pat S
+#Compare linear model to quadratic model for trees
+#Test whether slope is significantly different from 1:1 and put in SI
+#Barbara finalize data structure first.
+
+
+##Other questions to investigate
+#Hi-grade data; look at broad cover classes (decrease in trees etc)
+#Wait till disturbance metrics/spatial layers are solid to do any spatial extractions.
+#Follow outline to see what Q's to investigate

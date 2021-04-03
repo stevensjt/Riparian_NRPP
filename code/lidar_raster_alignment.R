@@ -5,7 +5,7 @@
 library(raster)
 
 
-####1. Read and evaluate raster data####
+####1. Read and evaluate raster data: test case####
 dem_10_bil <- raster("./GIS/DEM_2010_Frijoles01Watershed_30mbuff_1mbilinear/DEM_2010_Frijoles01Watershed_30mbuff_1mbilinear.tif")
 dem_16 <- raster("./GIS/DEM_2016_Frijoles01Watershed_30mbuff/DEM_2016_Frijoles01Watershed_30mbuff.tif")
 
@@ -75,12 +75,3 @@ plot(d_mod,main=paste0("shift x= ", x_inc, "px, y=", y_inc, "px\n median dif = "
                        "; \nmean dif = ", mean_dif,
                        "; \nmedian abs value dif = ", median_abs_dif))
 
-##TO-DOs per Pat S
-#Compare linear model to quadratic model for trees
-#Test whether slope is significantly different from 1:1 and put in SI
-#Barbara finalize data structure first.
-
-##Other questions to investigate
-#Hi-grade data; look at broad cover classes (decrease in trees etc)
-#Wait till disturbance metrics/spatial layers are solid to do any spatial extractions.
-#Follow outline to see what Q's to investigate
