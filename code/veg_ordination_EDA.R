@@ -8,7 +8,8 @@ library(readxl)
 library(tidyverse)
 
 ####1. Read data and process####
-d <- read_xlsx("./data/raw/BAND_NHNM_2020 RESAMPLING DATA.xlsx", col_types = c("text","date","numeric","text","numeric","text",rep("numeric",357)))
+#d <- read_xlsx("./data/raw/BAND_NHNM_2020 RESAMPLING DATA.xlsx", col_types = c("text","date","numeric","text","numeric","text",rep("numeric",357)))
+d <- read_csv("./data/derived/BAND_NHNM_2020 RESAMPLING DATA.csv", col_types = paste0(c("c","c","n","c","d","c",rep("d",357)),collapse=""))
 d$full_id <- paste(d$plot_id,d$year,d$canyon, sep="_")
 
 d_ord <- d %>%
@@ -32,3 +33,5 @@ orditorp(example_NMDS,display="species",col="red",air=0.01) #The function adds t
 
 ef <- envfit(example_NMDS, d_env, permu = 999)
 plot(ef)
+
+#CHECKME maybe add color for functional group

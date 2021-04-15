@@ -1,12 +1,25 @@
 library(tidyverse)
+library(readxl)
+library(stringr)
 
-
-####1. Read in data####
-d <- read_csv("./data/raw/spp_cover.csv") #read in species cover data
-spp <- read_csv("./data/raw/spp_list.csv") #read in species attribute list
+####1. Read in veg master data####
+d <- read_xlsx("./data/raw/BAND_NHNM_2020 RESAMPLING DATA.xlsx", 
+               col_types = c("text","date","numeric","text","numeric","text",rep("numeric",357)))
 
 
 ####2. Manipulate data####
+##2a. fill in NA values in cover data
+trees <- str_extract(names(d)[grep("sc0",names(d))], "[^_]+")
+d_trees <- d[,grep(paste(trees,collapse = "|"),names(d))]
+for(t in trees){
+  d[is.na(d[,paste0(t,"_cov")]) , paste0(t,"_cov")] <-
+    rowSums(d_trees[is.na(d_trees[,paste0(t,"_cov")]) , grep(paste0(t,"_sc"),names(d_trees))])
+  #CHECKME can update this later to do a more sophisticated merging of cover classes rather than a simple sum, 
+  #which can overshoot 100. Would probably be better using pipes then.
+}
+
+write_excel_csv(d,"./data/derived/BAND_NHNM_2020 RESAMPLING DATA.csv")
+
 ####1. Read in data####
 d <- read_csv("../data/raw/spp_cover.csv") #read in species cover data
 spp <- read_csv("../data/raw/spp_list.csv") #read in species attribute list
